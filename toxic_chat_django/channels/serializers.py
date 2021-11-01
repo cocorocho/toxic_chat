@@ -3,19 +3,25 @@ from .models import Message, Channel
 from accounts.serializers import UserSerializer
 
 
-class ChannelSerializer(serializers.ModelSerializer):
-    owner = UserSerializer(read_only=True)
-    members = UserSerializer(read_only=True, many=True)
-
-    class Meta:
-        model = Channel
-        exclude = ["id"]
-
-
 class MessageSerializer(serializers.ModelSerializer):
     author = UserSerializer(read_only=True)    
-    channel = ChannelSerializer()
 
     class Meta:
         model = Message
-        exclude = ["id", "time"]
+        fields = ["author", "content", "time"]
+
+
+class ChannelSerializer(serializers.ModelSerializer):
+    owner = UserSerializer(read_only=True)
+    members = UserSerializer(read_only=True, many=True)
+    channel_messages = MessageSerializer(read_only=True, many=True)
+
+    class Meta:
+        model = Channel
+        fields = ["name", "owner", "members", "channel_messages"]
+
+
+class MemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Channel
+        fields = ["id", "name"]

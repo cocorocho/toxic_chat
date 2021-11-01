@@ -6,7 +6,7 @@ from rest_framework.authtoken.models import Token
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = "__all__"
+        fields = ["username", "email"]
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data) -> User:

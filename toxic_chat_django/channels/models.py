@@ -22,7 +22,7 @@ class Message(models.Model):
     author = models.ForeignKey(User, on_delete=models.PROTECT)
     content = models.TextField(max_length=500)
     time = models.DateTimeField(auto_now_add=True)
-    channel = models.ForeignKey(Channel, on_delete=models.PROTECT)
+    channel = models.ForeignKey(Channel, on_delete=models.PROTECT, related_name="channel_messages")
 
     class Meta:
         verbose_name_plural = "Messages"
