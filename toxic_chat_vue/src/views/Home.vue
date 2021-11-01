@@ -1,18 +1,28 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<Sidebar/>
+<Topbar/>
+<Chat/>
 </template>
 
+
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import axios from "axios"
+import Sidebar from "@/components/Sidebar/Sidebar.vue"
+import Chat from "@/components/Chat/Chat.vue"
+import Topbar from "@/components/Topbar.vue"
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+    setup() {
+    },
+    components: {
+        Sidebar,
+        Topbar,
+        Chat,
+    },
+    beforeCreate() {
+        if (!this.$store.state.isAuthenticated) {
+            this.$router.push("/login/")
+        }
+    }
 }
 </script>
