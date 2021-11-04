@@ -37,11 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "channels",
     "corsheaders",
     "rest_framework",
     "rest_framework.authtoken",
     "accounts.apps.AccountsConfig",
-    "channels.apps.ChannelsConfig"
+    "rooms.apps.RoomsConfig"
 ]
 
 REST_FRAMEWORK = {
@@ -86,6 +87,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'toxic_chat_django.wsgi.application'
+ASGI_APPLICATION = 'toxic_chat_django.asgi.application'
 
 
 # Database
@@ -145,3 +147,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "accounts.User"
 
 MAX_USERNAME_LENGTH = 16
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('192.168.140.129', 6379)],
+        },
+    },
+}
