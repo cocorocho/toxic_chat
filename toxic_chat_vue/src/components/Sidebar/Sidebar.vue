@@ -1,5 +1,7 @@
 <template>
 <div className="fixed top-0 left-0 h-screen w-16 flex flex-col bg-gray-900 text-white shadow-lg">
+    <CreateChannel/>
+
     <SidebarIcon
     v-for="channel in channels" :key="channel"
     :name="channel.name[0]"
@@ -12,16 +14,18 @@
 <script>
 import axios from "axios"
 import SidebarIcon from "./SidebarIcon.vue"
+import CreateChannel from "./CreateChannel.vue"
 
 export default {
     name: "Sidebar",
     data() {
         return {
-            channels: []
+            channels: [],
         }
     },
     components: {
-        SidebarIcon
+        SidebarIcon,
+        CreateChannel
     },
     methods: {
         async getChannels() {

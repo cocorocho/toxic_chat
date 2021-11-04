@@ -32,8 +32,14 @@ export default {
         }
     },
     props: {
-        name: String,
-        id: Number
+        name: {
+            type: String,
+            required: false
+            },
+        id: {
+            type: Number,
+            required: false
+        }
     },
     created() {
         this.url = `channels/${this.id}/`
