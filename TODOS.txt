@@ -1,0 +1,12 @@
+# Server
+
+# TODO implement channels
+# TODO implement ws authentication
+# TODO save ws messages to db
+
+
+# Client
+
+# TODO ws connection
+# TODO ws channel action handling
+# TODO prettify html of messaging stream
