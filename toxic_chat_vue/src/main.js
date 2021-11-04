@@ -6,5 +6,7 @@ import axios from "axios"
 import './assets/tailwind.css'
 
 import "./index.css"
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 axios.defaults.baseURL = "http://localhost:8000"
 createApp(App).use(store).use(router, axios).mount('#app')
