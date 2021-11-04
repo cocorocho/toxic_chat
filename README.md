@@ -3,18 +3,23 @@ Simple discord-like chat site made with django and vue
 
 ## Requirements
 
-### For backend
-python 3.5+
+### Server-Side
+```python
+python
 django
 django-rest-framework
 django-cors-headers
 channels
 channels-redis
-Redis
 
-### For frontend
-npm
-vue
+Redis
+```
+
+### Client-Side
+```python
+vue3
+vuex
 tailwindcss
-sweetalert
 fontawesome
+sweetalertjs2
+```
