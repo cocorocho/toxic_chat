@@ -20,7 +20,7 @@ export default createStore({
         state.token = auth_token
         state.isAuthenticated = true
         axios.defaults.headers.common["Authorization"] = "Token " + state.token
-        axios.defaults.headers.common["Content-type"] = "application/json"
+        axios.defaults.headers.common["Content-Type"] = "application/json"
       }
     },
     setToken(state, args) {
@@ -29,7 +29,7 @@ export default createStore({
       localStorage.setItem("token", token)
       state.isAuthenticated = true
       axios.defaults.headers.common["Authorization"] = "Token " + state.token
-      axios.defaults.headers.common["Content-type"] = "application/json"
+      axios.defaults.headers.common["Content-Type"] = "application/json"
     },
     removeToken() {
       this.token = ""
